@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <Table Name="BDCQZ" Bmlx="1">
+    <![CDATA[  select bsm,
+       zsbsm,
+       ywh,
+       djjg,
+       zsgbh,
+       szsj,
+       dbsj,
+       sbh,
+       bdcqzh,
+       qlr,
+       gyqk,
+       zl,
+       bdcdyh,
+       qllx,
+       qlxz,
+       yt,
+       mj,
+       syqx,
+       qlqtzk,
+       fj,
+       zjh,
+       signvalue,
+       signcert,
+       tnsvalue,
+       zszt,
+       qmzt,
+       tszt,
+       xzqbm,
+       fwqbm, 
+	   qlbm,
+	   qlbsm,
+	   zslx,
+       qmsj,
+       tssj
+  from bdcqz
+  WHERE TSZT='0' and rownum <=500  order by BSM ]]>
+  </Table>
+  
+ <Table Name="BDCDYQLGX_1" Bmlx="1">
+   <![CDATA[  select bsm,
+       dzwqlbm,
+       dzwqlbsm,
+       zdzhqlbm,
+       zdzhqlbsm,
+       zt,
+       djjg,
+       xzqbm,
+       fwqbm,
+       tszt,
+       tssj
+      from bdcdyqlgx_1 
+      where TSZT='0' and rownum <=500 order by BSM ]]>
+  </Table>
+  
+  <Table Name="CFDJ_1" Bmlx="1">
+    <![CDATA[  select  bsm,  
+         cfwh,
+         djsj,
+         cfjg,
+         bzxr,
+         zl,
+         djjg,
+         bdcqzh,
+         jfsj,
+         xzqbm,
+         fwqbm,
+         cfbsm,
+         qlbm,
+         qlbsm,
+         tszt,
+         tssj,
+         zt
+         from cfdj_1 
+         WHERE TSZT='0' and rownum <=500  order by BSM ]]>
+     </Table>
+     
+  <Table Name="DYAQ_1" Bmlx="1">
+    <![CDATA[  select  bsm,  
+        djsj,
+        bdcdjzmh,
+        dyqx,
+        ywr,
+        djjg,
+        qlr,
+        qlrzjh,
+        bdbzqsz,
+        zgzqse,
+        dysx,
+        dyfs,
+        zxsj,
+        xzqbm,
+        fwqbm,
+        dybsm,
+        qlbm,
+        qlbsm,
+        qmzt,
+        qmsj,
+        tszt,
+        tssj,
+        zt
+        from dyaq_1 
+         WHERE TSZT='0' and rownum <=500  order by BSM ]]>
+     </Table>
+ 
+<Table Name="FDCQ_1" Bmlx="1">
+    <![CDATA[  select  bsm,  
+            jzmj,
+            tnjzmj,
+            zl,
+            djjg,
+            ghyt,
+            fwxz,
+            qlrlx,
+            qlr,
+            zjh,
+            gyqk,
+            qlbl,
+            bdcqzh,
+            djsj,
+            zxsj,
+            zcs,
+            xzqbm,
+            fwqbm,
+            qlbm,
+            qlbsm,
+            tszt,
+            tssj,
+            zt
+	    from fdcq_1 
+      WHERE TSZT='0' and rownum <=500  order by BSM ]]>
+     </Table>
+     
+ <Table Name="FWXX_1" Bmlx="1">
+    <![CDATA[  select  bsm,  
+             dybsm,
+             bdcdyh,
+             zl,
+             djjg,
+             szc,
+             zcs,
+             xzqbm,
+             fwqbm,
+             tszt,
+             tssj,
+             qlbsm,
+             qlbm,
+             jcnf,
+             jzmj,
+             fwxz,
+             fwyt
+             from fwxx_1 
+              WHERE TSZT='0' and rownum <=500  order by BSM ]]>
+     </Table>
+     
+  <Table Name="JSYDSYQ_1" Bmlx="1">
+    <![CDATA[  select  bsm,  
+            qlr,
+            zdmj,
+            syqx,
+            bdcqzh,
+            jzmj,
+            jzrjl,
+            jzmd,
+            djjg,
+            qlxz,
+            jzwzdmj,
+            tdyt,
+            syqmj,
+            zl,
+            djsj,
+            jzxg,
+            qlsdfs,
+            zjh,
+            xzqbm,
+            fwqbm,
+            qlbm,
+            qlbsm,
+            tszt,
+            tssj,
+            zt
+            from jsydsyq_1 
+      WHERE TSZT='0' and rownum <=500  order by BSM ]]>
+     </Table>
+     
+  <Table Name="QLR_1" Bmlx="1">
+    <![CDATA[  select  bsm,  
+            qlrmc,
+            zjzl,
+            zjh,
+            djjg,
+           lxdh,
+           qlbm,
+           qlbsm,
+           xzqbm,
+           fwqbm,
+           tszt,
+           tssj,
+           zsbsm
+      from qlr_1 
+      WHERE TSZT='0' and rownum <=500  order by BSM ]]>
+     </Table>
+   <Table Name="BYSLGZS" Bmlx="1">
+      <![CDATA[  select bsm,
+         bh,
+         sqr,
+         sqsj,
+         sqsx, 
+         ly1, 
+         ly2,
+         lysm2,
+         ly3, 
+         lysm3,
+         zxdh, 
+         djjg,
+         gzsj,
+         zjh,
+         xzqbm, 
+         fwqbm,
+         tszt, 
+         tssj, 
+         byslbsm, 
+         qlbm, 
+         qlbsm
+  from byslgzs
+  WHERE TSZT='0' and rownum <=500  order by BSM ]]>
+  </Table>
+
+  <Table Name="BYDJGZS" Bmlx="1">
+    <![CDATA[  select bsm,
+         bh,
+         sqr,
+         sqsj,
+         sqsx, 
+         ly1, 
+         ly2,
+         ly3,
+         ly4,
+         sm,  
+         zxdh, 
+         djjg, 
+         gzsj, 
+         zjh, 
+         xzqbm, 
+         fwqbm, 
+         tszt, 
+         tssj,  
+         bydjbsm,
+         djywh
+  from bydjgzs
+  WHERE TSZT='0' and rownum <=500 order by BSM ]]>
+  </Table>  
+</root>

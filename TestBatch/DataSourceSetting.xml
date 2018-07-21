@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SQL>
+       SELECT 'BDCQZ' NAME, COUNT(1) SL FROM BDCQZ WHERE TSZT = '0' UNION
+       SELECT 'BDCDYQLGX_1' NAME, COUNT(1) SL FROM BDCDYQLGX_1 WHERE TSZT = '0' UNION
+       SELECT 'CFDJ_1' NAME, COUNT(1) SL FROM CFDJ_1 WHERE TSZT = '0' UNION
+       SELECT 'DYAQ_1' NAME, COUNT(1) SL FROM DYAQ_1 WHERE TSZT = '0' UNION
+       SELECT 'FDCQ_1' NAME, COUNT(1) SL FROM FDCQ_1 WHERE TSZT = '0' UNION
+       SELECT 'FWXX_1' NAME, COUNT(1) SL FROM FWXX_1 WHERE TSZT = '0' UNION
+       SELECT 'JSYDSYQ_1' NAME, COUNT(1) SL FROM JSYDSYQ_1 WHERE TSZT = '0' UNION
+       SELECT 'QLR_1' NAME, COUNT(1) SL FROM QLR_1 WHERE TSZT = '0' UNION
+       SELECT 'BYDJGZS' NAME, COUNT(1) SL FROM BYDJGZS WHERE TSZT = '0' UNION
+       SELECT 'BYSLGZS' NAME, COUNT(1) SL FROM BYSLGZS WHERE TSZT = '0'
+  </SQL>
+  <Project name="118">
+    <Cycle>0</Cycle>
+    <FromDataSource>192.168.2.118:1521/wzbdc</FromDataSource>
+    <FromUserName>sjgj</FromUserName>
+    <FromUserPassWord>sjgj</FromUserPassWord>
+    <TargetDataSourceName>192.168.2.119:1521/testbdc</TargetDataSourceName>
+    <TargetUserName>sjgj3303031</TargetUserName>
+    <TargetUserPassWord>sjgj3303031</TargetUserPassWord>
+  </Project>
+  <Project name="119">
+    <Cycle>0</Cycle>
+    <FromDataSource>192.168.2.118:1521/wzbdc</FromDataSource>
+    <FromUserName>sjgj</FromUserName>
+    <FromUserPassWord>sjgj</FromUserPassWord>
+    <TargetDataSourceName>192.168.2.119:1521/testbdc</TargetDataSourceName>
+    <TargetUserName>sjgj3303031</TargetUserName>
+    <TargetUserPassWord>sjgj3303031</TargetUserPassWord>
+  </Project>
+</root>
