@@ -1,6 +1,6 @@
 ﻿using Enity;
 using Log;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using Oracle.ManagedDataAccess.Client;
 using SqlHelper;
 using System;
@@ -156,7 +156,7 @@ namespace Services
                     catch (Exception e)
                     {
                         log.Logger(e.ToString());
-                        //throw e;
+                        throw e;
                     }
                 }
                 else   
@@ -206,7 +206,7 @@ namespace Services
             {
                 log.Logger($"更新状态出错，错误信息:{ e.Message}");
                 result = false;
-                //throw e;
+                throw e;
             }
             return result;
         }
@@ -282,14 +282,13 @@ namespace Services
                         }
                     }
                 }
+                return result;
             }
             catch (Exception ex)
             {
                 log.Logger($"方案执行同步时出错：{ex.Message}");
-                result = false;
-                //throw ex;
+                throw ex;
             }
-            return result;
         }
         /// <summary>
         /// 读取xml配置文件，进行手动同步操作
@@ -400,23 +399,54 @@ namespace Services
 
                             in_connection = sqlhelper.OpenConn(in_conn);
                             out_connection = sqlhelper.OpenConn(out_conn);
-                            while (AutoBackup_Symbol == 1)
-                            {
-                                if (Select_Insert_Update(sqlhelper, ProjectName, sql) && (AutoBackup_Symbol == 1))
+
+                            //for (int i = 0; i < 10000; i++)
+                            //{
+                                while (AutoBackup_Symbol == 1)
                                 {
-                                    log.Logger(string.Format("自动同步，{0}方案同步执行完毕*****************", ProjectName));
-                                    if (AutoBackup_Symbol == 1)
+                                    try
                                     {
-                                        Thread.Sleep(60000 * Cycle);
+                                        if (Select_Insert_Update(sqlhelper, ProjectName, sql) && (AutoBackup_Symbol == 1))
+                                        {
+                                            log.Logger(string.Format("自动同步，{0}方案同步执行完毕*****************", ProjectName));
+                                            if (AutoBackup_Symbol == 1)
+                                            {
+                                                Thread.Sleep(60000 * Cycle);
+                                            }
+                                        }
+                                        //else
+                                        //{
+                                        //    sqlhelper.Close(in_connection);
+                                        //    sqlhelper.Close(out_connection);
+                                        //    log.Logger("同步异常，请及时处理！*****************");
+                                        //}
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        //判断ex 类型 如果是 数据库断开则重来再执行代码
+                                        string _ex = ex.ToString();
+                                        // add by fangping 2017-10-09  处理异常 Oracle.DataAccess.Client.OracleException ORA-03114: 未连接到 ORALCE  或  ORA-00028: your session has been killed ; ORA-00028: 您的会话己被终止
+                                        if (_ex.Contains("ORA-03114:") || _ex.Contains("ORA-00028:"))
+                                        {
+                                            //重连
+                                            log.Logger($"正在尝试重新连接到 ORALCE {in_conn}|{out_conn}……");
+                                            in_connection.Close();
+                                            in_connection.Dispose();
+                                            out_connection.Close();
+                                            out_connection.Dispose();
+                                            //sqlhelper.Close(in_connection);
+                                            //sqlhelper.Close(out_connection);
+
+                                            in_connection = sqlhelper.OpenConn(in_conn);
+                                            out_connection = sqlhelper.OpenConn(out_conn);
+                                            log.Logger($"重新连接到 ORALCE {in_conn}|{out_conn}成功……");
+                                        }
+                                        else {
+                                                log.Logger($" 执行出错{ex.Message}……");
+                                        }
                                     }
                                 }
-                                else
-                                {
-                                    sqlhelper.Close(in_connection);
-                                    sqlhelper.Close(out_connection);
-                                    log.Logger("同步异常，请及时处理！*****************");
-                                }
-                            }
+                            //}
                         }
                     }
             
@@ -655,9 +685,9 @@ namespace Services
         /// 测试
         /// </summary>
         /// <returns></returns>
-        public string Test()
-        {
-            return JsonConvert.SerializeObject(tables);
-        }
+        //public string Test()
+        //{
+        //    return JsonConvert.SerializeObject(tables);
+        //}
     }
 }
